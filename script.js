@@ -19,12 +19,6 @@ let standardIngredients = {
 let calculatedIngredients = {};
 
 // Navigation functions
-function navigateToEditItems() {
-    document.getElementById('homePage').classList.add('hidden');
-    document.getElementById('editItemsPage').classList.remove('hidden');
-    renderItemsList();
-}
-
 function navigateToPurchaseList() {
     document.getElementById('homePage').classList.add('hidden');
     document.getElementById('purchaseListPage').classList.remove('hidden');
@@ -32,43 +26,7 @@ function navigateToPurchaseList() {
 
 function navigateToHome() {
     document.getElementById('homePage').classList.remove('hidden');
-    document.getElementById('editItemsPage').classList.add('hidden');
     document.getElementById('purchaseListPage').classList.add('hidden');
-}
-
-// Edit Items functions
-function addItem() {
-    const dishType = document.getElementById('editDishType').value;
-    const itemName = document.getElementById('itemName').value;
-    const itemQuantity = parseFloat(document.getElementById('itemQuantity').value);
-    const itemUnit = document.getElementById('itemUnit').value;
-
-    if (itemName && !isNaN(itemQuantity)) {
-        standardIngredients[dishType][itemName] = { quantity: itemQuantity, unit: itemUnit };
-        renderItemsList();
-        document.getElementById('editItemsForm').reset();
-    } else {
-        alert("Please enter valid item details.");
-    }
-}
-
-function deleteItem(dishType, itemName) {
-    delete standardIngredients[dishType][itemName];
-    renderItemsList();
-}
-
-function renderItemsList() {
-    const dishType = document.getElementById('editDishType').value;
-    const itemsList = document.getElementById('items');
-    itemsList.innerHTML = '';
-    for (const [item, details] of Object.entries(standardIngredients[dishType])) {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <span>${item}: ${details.quantity} ${details.unit}</span>
-            <button onclick="deleteItem('${dishType}', '${item}')">Delete</button>
-        `;
-        itemsList.appendChild(li);
-    }
 }
 
 // Purchase List functions
@@ -100,26 +58,67 @@ function calculateIngredients() {
         calculatedItemsList.appendChild(li);
     }
 
-    // Enable the Export as PDF button
+    // Enable the Export as PDF and Add Item buttons
     document.getElementById('exportPdf').disabled = false;
+    document.getElementById('addItemButton').classList.remove('hidden');
 }
 
 function editCalculatedItem(ingredient) {
     const newQuantity = prompt(`Enter new quantity for ${ingredient}:`, calculatedIngredients[ingredient].quantity);
     if (newQuantity && !isNaN(newQuantity)) {
         calculatedIngredients[ingredient].quantity = parseFloat(newQuantity).toFixed(2);
-        calculateIngredients(); // Re-render the list
+        renderCalculatedItems(); // Re-render the list
     }
 }
 
 function deleteCalculatedItem(ingredient) {
     delete calculatedIngredients[ingredient];
-    calculateIngredients(); // Re-render the list
+    renderCalculatedItems(); // Re-render the list
+}
+
+function addItemAfterCalculation() {
+    const itemName = prompt("Enter the name of the item to add:");
+    const itemQuantity = prompt("Enter the quantity of the item:");
+    const itemUnit = prompt("Enter the unit of the item (kg, g, L, mL):");
+
+    if (itemName && itemQuantity && itemUnit && !isNaN(itemQuantity)) {
+        calculatedIngredients[itemName] = { quantity: parseFloat(itemQuantity).toFixed(2), unit: itemUnit };
+        renderCalculatedItems(); // Re-render the list
+    } else {
+        alert("Please enter valid item details.");
+    }
+}
+
+function renderCalculatedItems() {
+    const calculatedItemsList = document.getElementById('calculatedItems');
+    calculatedItemsList.innerHTML = '';
+
+    for (const [ingredient, details] of Object.entries(calculatedIngredients)) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${ingredient}: ${details.quantity} ${details.unit}</span>
+            <button onclick="editCalculatedItem('${ingredient}')">Edit</button>
+            <button onclick="deleteCalculatedItem('${ingredient}')">Delete</button>
+        `;
+        calculatedItemsList.appendChild(li);
+    }
 }
 
 function exportToPdf() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+
+    // Base64-encoded Noto Sans Malayalam font
+    const malayalamFontBase64 = `
+        /* Paste the base64-encoded font here */
+    `;
+
+    const malayalamFontName = 'NotoSansMalayalam';
+
+    // Add the font to jsPDF
+    doc.addFileToVFS('NotoSansMalayalam.ttf', malayalamFontBase64);
+    doc.addFont('NotoSansMalayalam.ttf', malayalamFontName, 'normal');
+    doc.setFont(malayalamFontName); // Set the font
 
     // Add title
     doc.setFontSize(18);
