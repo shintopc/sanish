@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanish Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Sanish Kitchen</h1>
+    </header>
+
+    <div class="container">
+        <!-- Home Page -->
+        <div id="homePage">
+            <button onclick="navigateToEditItems()">Edit Items for Dishes</button>
+            <button onclick="navigateToPurchaseList()">Make Purchase List</button>
+        </div>
+
+        <!-- Edit Items Page -->
+        <div id="editItemsPage" class="hidden">
+            <h2>Edit Items for Dishes</h2>
+            <label for="editDishType">Select Dish:</label>
+            <select id="editDishType" onchange="renderItemsList()">
+                <option value="biriyani">Biriyani</option>
+                <option value="rice">Rice</option>
+            </select>
+
+            <form id="editItemsForm">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+                
+                <label for="itemQuantity">Quantity (per 100 people):</label>
+                <input type="number" id="itemQuantity" name="itemQuantity" step="0.01" required>
+                
+                <label for="itemUnit">Unit:</label>
+                <select id="itemUnit" name="itemUnit">
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="g">Gram (g)</option>
+                    <option value="L">Litre (L)</option>
+                    <option value="mL">Millilitre (mL)</option>
+                </select>
+                
+                <button type="button" onclick="addItem()">Add Item</button>
+            </form>
+
+            <div id="itemsList">
+                <h3>Current Items</h3>
+                <ul id="items"></ul>
+            </div>
+
+            <button onclick="navigateToHome()">Back to Home</button>
+        </div>
+
+        <!-- Purchase List Page -->
+        <div id="purchaseListPage" class="hidden">
+            <h2>Make Purchase List</h2>
+            <form id="purchaseForm">
+                <label for="numPeople">Number of People:</label>
+                <input type="number" id="numPeople" name="numPeople" min="1" required>
+                
+                <label for="dishType">Select Dish:</label>
+                <select id="dishType" name="dishType">
+                    <option value="biriyani">Biriyani</option>
+                    <option value="rice">Rice</option>
+                </select>
+                
+                <button type="button" onclick="calculateIngredients()">Calculate</button>
+            </form>
+
+            <div id="result" class="result">
+                <h3>Calculated Ingredients</h3>
+                <ul id="calculatedItems"></ul>
+            </div>
+            <button id="exportPdf" class="export-button" onclick="exportToPdf()" disabled>Export as PDF</button>
+            <button onclick="navigateToHome()">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <marquee>Made by Shinto PC</marquee>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

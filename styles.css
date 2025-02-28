@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 340px; /* Match the container width */
+    border-radius: 8px 8px 0 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Container Styles */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 340px; /* Match the container width */
+    border-radius: 0 0 8px 8px;
+    margin-top: 20px;
+}
+
+footer marquee {
+    font-size: 14px;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Form Styles */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Result Styles */
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.export-button {
+    margin-top: 20px;
+    background-color: #007bff;
+}
+
+.export-button:hover {
+    background-color: #0056b3;
+}
+
+.export-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* List Styles */
+#itemsList, #calculatedItems {
+    margin-top: 20px;
+}
+
+#itemsList ul, #calculatedItems ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#itemsList li, #calculatedItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#itemsList button, #calculatedItems button {
+    width: auto;
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #dc3545;
+}
+
+#itemsList button:hover, #calculatedItems button:hover {
+    background-color: #c82333;
+}
