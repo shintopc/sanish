@@ -58,9 +58,10 @@ function calculateIngredients() {
         calculatedItemsList.appendChild(li);
     }
 
-    // Enable the Export as PDF and Add Item buttons
+    // Enable the Export as PDF, Add Item, and Share to WhatsApp buttons
     document.getElementById('exportPdf').disabled = false;
     document.getElementById('addItemButton').classList.remove('hidden');
+    document.getElementById('shareWhatsApp').disabled = false;
 }
 
 function editCalculatedItem(ingredient) {
@@ -138,4 +139,18 @@ function exportToPdf() {
 
     // Save the PDF
     doc.save("purchase_list.pdf");
+}
+
+function shareToWhatsApp() {
+    // Format the purchase list into a readable text
+    let shareText = "Catering Purchase List:\n\n";
+    for (const [ingredient, details] of Object.entries(calculatedIngredients)) {
+        shareText += `${ingredient}: ${details.quantity} ${details.unit}\n`;
+    }
+
+    // Encode the text for the WhatsApp URL
+    const encodedText = encodeURIComponent(shareText);
+
+    // Open WhatsApp with the shared text
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
 }
