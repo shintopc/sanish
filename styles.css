@@ -127,9 +127,12 @@ input, select {
     width: auto;
     padding: 5px 10px;
     margin-left: 10px;
-    background-color: #dc3545;
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
 }
 
 #itemsList button:hover, #calculatedItems button:hover {
-    background-color: #c82333;
+    color: #c82333;
 }
