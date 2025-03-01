@@ -18,12 +18,18 @@
         <!-- Home Page -->
         <div id="homePage">
             <button onclick="navigateToPurchaseList()">Make Purchase List</button>
+          <div style="text-align: left;">
+    Orchid Events & Catering Service<br>
+    Kannur, Kerala<br>
+    Phone: +91 9562941209
+</div>
+
         </div>
 
         <!-- Purchase List Page -->
         <div id="purchaseListPage" class="hidden">
             <h2>Make Purchase List</h2>
-            <form id="purchaseForm">
+                      <form id="purchaseForm">
                 <label for="numPeople">Number of People:</label>
                 <input type="number" id="numPeople" name="numPeople" min="1" required>
                 
@@ -42,13 +48,14 @@
             </div>
             <button id="addItemButton" class="hidden" onclick="addItemAfterCalculation()">Add Item</button>
             <button id="exportPdf" class="export-button" onclick="exportToPdf()" disabled>Export as PDF</button>
+            <button id="shareWhatsApp" class="export-button" onclick="shareToWhatsApp()" disabled>Share to WhatsApp</button>
             <button onclick="navigateToHome()">Back to Home</button>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <marquee>Made by Shinto PC</marquee>
+        <marquee>Made by Shinto PC  | Contact : 9419927293 | shintopc@gmail.com</marquee>
     </footer>
 
     <script src="script.js"></script>
