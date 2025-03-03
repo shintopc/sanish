@@ -35,7 +35,7 @@ header h1 {
     width: 300px; /* Main app width */
     text-align: center;
     margin: 10px 0; /* Reduced margin between header and footer */
-    flex-grow: 1; /* Allow container to grow and take available space */
+    flex-grow: 0; /* Allow container to grow and take available space */
 }
 
 /* Footer Styles */
