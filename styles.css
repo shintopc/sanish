@@ -18,7 +18,7 @@ header {
     text-align: center;
     width: 340px; /* Smaller than container width */
     border-radius: 8px 8px 0 0; /* Rounded corners at the top */
-    margin-top: 20px; /* Add some space at the top */
+    margin-top: 10px; /* Reduced margin at the top */
 }
 
 header h1 {
@@ -34,7 +34,7 @@ header h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px; /* Main app width */
     text-align: center;
-    margin: 0; /* Remove margin to align with header and footer */
+    margin: 10px 0; /* Reduced margin between header and footer */
     flex-grow: 1; /* Allow container to grow and take available space */
 }
 
@@ -47,7 +47,7 @@ footer {
     width: 340px; /* Smaller than container width */
     border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
     margin-top: auto; /* Push footer to the bottom */
-    margin-bottom: 20px; /* Add some space at the bottom */
+    margin-bottom: 10px; /* Reduced margin at the bottom */
 }
 
 footer marquee {
