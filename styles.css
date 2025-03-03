@@ -46,6 +46,7 @@ footer {
     text-align: center;
     width: 340px; /* Smaller than container width */
     border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
+    margin-top: auto; /* Push footer to the bottom */
     margin-bottom: 20px; /* Add some space at the bottom */
 }
 
