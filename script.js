@@ -1,6 +1,6 @@
 // Standard ingredients for 100 people
 let standardIngredients = {
-    biriyani - {
+    biriyani: {
         rice: { quantity: 10, unit: 'kg' },
         chicken: { quantity: 8, unit: 'kg' },
         spices: { quantity: 0.5, unit: 'kg' },
