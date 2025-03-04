@@ -1,13 +1,13 @@
 // Standard ingredients for 100 people
 let standardIngredients = {
     biriyani: {
-        rice: { quantity: 10, unit: 'kg' },
-        chicken: { quantity: 8, unit: 'kg' },
+        അരി : { quantity: 10, unit: 'kg' },
+       ചിക്കൻ : { quantity: 8, unit: 'kg' },
         spices: { quantity: 0.5, unit: 'kg' },
         oil: { quantity: 1, unit: 'L' },
-        onions: { quantity: 3, unit: 'kg' },
-        tomatoes: { quantity: 2, unit: 'kg' },
-        yogurt: { quantity: 2, unit: 'L' },
+        സവോള : { quantity: 3, unit: 'kg' },
+        തക്കാളി : { quantity: 2, unit: 'kg' },
+        തൈര് : { quantity: 2, unit: 'L' },
     },
     rice: {
         rice: { quantity: 8, unit: 'kg' },
