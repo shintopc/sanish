@@ -150,6 +150,17 @@ function shareToWhatsApp() {
 
     // Encode the text for the WhatsApp URL
     const encodedText = encodeURIComponent(shareText);
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => {
+        console.log('Service Worker registered: ', registration);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed: ', error);
+      });
+  });
+}
 
     // Open WhatsApp with the shared text
     window.open(`https://wa.me/?text=${encodedText}`, '_blank');
