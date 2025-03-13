@@ -35,7 +35,7 @@ let standardIngredients = {
         കാരറ്റ് : { quantity: 600, unit: 'g' },
     പൈനാപ്പിൾ : { quantity: 600, unit: 'g' },
         അച്ചാർ : { quantity: 2, unit: 'kg' },
-        Oil_ചിക്കൻഫ്രൈ : { quantity: 4, unit: 'L' },}
+        Oil_ചിക്കൻഫ്രൈ : { quantity: 4, unit: 'L' },},
     rice: {
         rice: { quantity: 8, unit: 'kg' },
         oil: { quantity: 0.5, unit: 'L' },
