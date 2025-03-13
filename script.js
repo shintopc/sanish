@@ -42,7 +42,14 @@ let standardIngredients = {
         rice: { quantity: 8, unit: 'kg' },
         oil: { quantity: 0.5, unit: 'L' },
         salt: { quantity: 0.2, unit: 'kg' },
+    },
+Ghee_rice: {
+        rice: { quantity: 8, unit: 'kg' },
+        oil: { quantity: 0.5, unit: 'L' },
+        salt: { quantity: 0.2, unit: 'kg' },
     }
+
+
 };
 
 let calculatedIngredients = {};
