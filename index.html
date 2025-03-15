@@ -62,7 +62,11 @@
     <footer>
         <marquee>Made by Shinto PC  | Contact : 9419927293 | shintopc@gmail.com</marquee>
     </footer>
-
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
     <script src="script.js"></script>
 </body>
 </html>
