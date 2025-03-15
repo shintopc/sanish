@@ -39,9 +39,15 @@ let standardIngredients = {
     },
     
     rice: {
-        rice: { quantity: 8, unit: 'kg' },
-        oil: { quantity: 0.5, unit: 'L' },
-        salt: { quantity: 0.2, unit: 'kg' },
+        അരി: { quantity: 8.5, unit: 'kg' },
+        അവിയൽ: { quantity: 5, unit: 'kg' },
+        പയർ: { quantity: 3, unit: 'kg' },
+        ബീഫ്: { quantity: 1.5, unit: 'kg' },
+        ചിക്കൻ65: { quantity: 1.5, unit: 'kg' },
+        തൈര്: { quantity: 3, unit: 'L' },
+        പച്ചടി: { quantity: 1, unit: 'kg' },
+        പാവയ്ക്കാ_കൊണ്ടാട്ടം: { quantity: 1, unit: 'kg' },
+        മാങ്ങാ_അച്ചാർ: { quantity: 1, unit: 'kg' },
     },
 Ghee_rice: {
         rice: { quantity: 8, unit: 'kg' },
