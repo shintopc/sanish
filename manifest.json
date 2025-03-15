@@ -1,6 +1,6 @@
 {
-  "short_name": "Sanish",
-  "name": "Sanish Web App",
+  "short_name": "Eden's kitchen",
+  "name": "Eden's kitchen",
   "description": "A sample PWA for Sanish's web app.",
   "icons": [
     {
@@ -17,5 +17,9 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+  "id": "sanish",
+  "categories": [
+    "utilities"
+  ]
 }
