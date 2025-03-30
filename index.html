@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#000000">
     <title>Eden's Kitchen</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,18 +21,19 @@
         <!-- Home Page -->
         <div id="homePage">
             <button onclick="navigateToPurchaseList()">Make Purchase List</button>
-          <div style="text-align: left;">
-    Eden Events & Catering Service<br>
-    Kannur, Kerala<br>
-    Phone: +91 9562941209
-</div>
-
+            <button onclick="navigateToShareMenu()">Share Menu</button>
+            
+            <div style="text-align: left; margin-top: 20px;">
+                Eden Events & Catering Service<br>
+                Kannur, Kerala<br>
+                Phone: +91 9562941209
+            </div>
         </div>
 
         <!-- Purchase List Page -->
         <div id="purchaseListPage" class="hidden">
             <h2>Make Purchase List</h2>
-                      <form id="purchaseForm">
+            <form id="purchaseForm">
                 <label for="numPeople">Number of People:</label>
                 <input type="number" id="numPeople" name="numPeople" min="1" required>
                 
@@ -53,20 +54,52 @@
             </div>
             <button id="addItemButton" class="hidden" onclick="addItemAfterCalculation()">Add Item</button>
             <button id="exportPdf" class="export-button" onclick="exportToPdf()" disabled>Export as PDF</button>
-            <button id="shareWhatsApp" class="export-button" onclick="shareToWhatsApp()" disabled>Share to WhatsApp</button>
+            <button id="sharePurchaseWhatsApp" class="export-button" onclick="sharePurchaseToWhatsApp()" disabled>Share to WhatsApp</button>
+            
+            <button onclick="navigateToHome()">Back to Home</button>
+        </div>
+
+        <!-- Share Menu Page -->
+        <div id="shareMenuPage" class="hidden">
+            <h2>Share Menu</h2>
+            <label for="menuDropdown">Select Menu:</label>
+            <select id="menuDropdown">
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="breakfast">Breakfast</option>
+            </select>
+            <button id="loadMenu">Load Menu</button>
+
+            <ul id="menuList"></ul>
+
+            <input type="text" id="menuItemInput" placeholder="Add new menu item">
+            <button id="addMenuItem">Add Item</button>
+
+            <button id="shareWhatsApp" class="export-button">Share on WhatsApp</button>
+            <button id="exportMenuPDF" class="export-button">Export as PDF</button>
+            
             <button onclick="navigateToHome()">Back to Home</button>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <marquee>Made by Shinto PC  | Contact : 9419927293 | shintopc@gmail.com</marquee>
+        <marquee>Made by Shinto PC | Contact : 9419927293 | shintopc@gmail.com</marquee>
     </footer>
-<script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
-</script>
+
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
