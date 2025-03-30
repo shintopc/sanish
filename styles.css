@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Header Styles */
@@ -16,9 +16,9 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
-    width: 340px; /* Match the container width */
+    width: 340px;
     border-radius: 8px 8px 0 0;
-  margin-top: 30px; /* Reduced margin at the top */
+    margin-top: 20px;
 }
 
 header h1 {
@@ -34,6 +34,7 @@ header h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Footer Styles */
@@ -42,9 +43,9 @@ footer {
     color: white;
     padding: 10px 0;
     text-align: center;
-    width: 340px; /* Match the container width */
+    width: 340px;
     border-radius: 0 0 8px 8px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 footer marquee {
@@ -61,6 +62,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
@@ -76,6 +78,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
 input, select {
@@ -84,6 +87,7 @@ input, select {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 /* Result Styles */
@@ -107,21 +111,33 @@ input, select {
     cursor: not-allowed;
 }
 
+/* WhatsApp Share Button */
+#sharePurchaseWhatsApp {
+    background-color: #25D366;
+}
+
+#sharePurchaseWhatsApp:hover {
+    background-color: #128C7E;
+}
+
 /* List Styles */
-#itemsList, #calculatedItems {
+#itemsList, #calculatedItems, #menuList {
     margin-top: 20px;
 }
 
-#itemsList ul, #calculatedItems ul {
+#itemsList ul, #calculatedItems ul, #menuList {
     list-style-type: none;
     padding: 0;
 }
 
-#itemsList li, #calculatedItems li {
+#itemsList li, #calculatedItems li, #menuList li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
 }
 
 #itemsList button, #calculatedItems button {
@@ -136,4 +152,32 @@ input, select {
 
 #itemsList button:hover, #calculatedItems button:hover {
     color: #c82333;
+}
+
+.menuItemText {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.menuItemDelete {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Share Menu Page Styles */
+#shareMenuPage {
+    text-align: center;
+}
+
+#shareMenuPage input, 
+#shareMenuPage select, 
+#shareMenuPage button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#shareMenuPage #menuList {
+    text-align: left;
+    margin: 20px 0;
 }
